@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="RealWorldApp.Pages.PlaceOrderPage"
+             BackgroundColor="#F7F5F4">
+    <ContentPage.Content>
+        <StackLayout Spacing="20"
+                     Margin="25">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="8*" />
+                    <ColumnDefinition Width="1*" />
+                </Grid.ColumnDefinitions>
+                <Image Source="backarrow.png"
+                       HeightRequest="25"
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer x:Name="TapBack" Tapped="TapBack_Tapped"/>
+                    </Image.GestureRecognizers>
+                </Image>
+                <Label Grid.Column="1"
+                       TextColor="#CE0B06"
+                       Text="PLACE ORDER"
+                       FontSize="Large"
+                       FontAttributes="Bold"
+                       VerticalOptions="Center"
+                       HorizontalTextAlignment="Center"
+                       HorizontalOptions="Center" />
+            </Grid>
+            <Frame HasShadow="True"
+                   Padding="25"
+                   Margin="0,30,0,30">
+                <StackLayout Margin="0,60,0,60">
+                    <Label Text="Provide Your Details"
+                           FontAttributes="Bold"
+                           FontSize="Large"
+                           HorizontalTextAlignment="Center"
+                           TextColor="#CE0B06" />
+                    <Entry Placeholder="Name"
+                           PlaceholderColor="#80574D"
+                           TextColor="#80574D"
+                           x:Name="EntName"
+                           Keyboard="Text" />
+                    <Entry Placeholder="Phone"
+                           PlaceholderColor="#80574D"
+                           TextColor="#80574D"
+                           x:Name="EntPhone"
+                           Keyboard="Numeric" />
+                    <Editor Placeholder="Address"
+                            HeightRequest="100"
+                            PlaceholderColor="#80574D"
+                            TextColor="#80574D"
+                            x:Name="EntAddress"
+                            Keyboard="Default" />
+                </StackLayout>
+            </Frame>
+            <Button Text="Place My Order"
+                    BackgroundColor="#CE0B06"
+                    TextColor="White"
+                    x:Name="BtnPlaceOrder" 
+                    Clicked="BtnPlaceOrder_Clicked"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

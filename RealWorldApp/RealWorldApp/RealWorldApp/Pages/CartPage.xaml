@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="RealWorldApp.Pages.CartPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Grid Margin="20">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="7.7*" />
+                    <ColumnDefinition Width="1.3*" />
+                </Grid.ColumnDefinitions>
+                <Image Source="backarrow.png"
+                       Grid.Column="0"
+                       HorizontalOptions="Center">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer x:Name="TapBack" Tapped="TapBack_Tapped"/>
+                    </Image.GestureRecognizers>
+                </Image>
+                <Label Grid.Column="1"
+                       TextColor="#CE0B06"
+                       Text="Your Cart"
+                       FontSize="Large"
+                       FontAttributes="Bold"
+                       HorizontalTextAlignment="Center" />
+                <Label Grid.Column="2"
+                       TextColor="#CE0B06"
+                       Text="Clear"
+                       FontSize="15"
+                       CharacterSpacing="1"
+                       FontAttributes="Bold"
+                       VerticalTextAlignment="End"
+                       HorizontalTextAlignment="Center">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer x:Name="TapClearCart" Tapped="TapClearCart_Tapped" />
+                    </Label.GestureRecognizers>
+                </Label>
+            </Grid>
+            <ListView x:Name="LvShoppingCart"
+                      SelectionMode="None"
+                      CachingStrategy="RecycleElement"
+                      HasUnevenRows="True"
+                      SeparatorColor="#80574D">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Margin="20,10,20,10">
+                                <Label TextColor="#B00905"
+                                       FontSize="Medium"
+                                       Text="{Binding productName}"/>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label CharacterSpacing="1"
+                                           TextColor="#80574D"
+                                           FontSize="Medium"
+                                           Text="{Binding qty}"/>
+                                    <Label Text="X"
+                                           TextColor="#80574D"
+                                           FontSize="Medium" />
+                                    <Label CharacterSpacing="1"
+                                           TextColor="#80574D"
+                                           FontSize="Medium"
+                                           Text="{Binding price}"/>
+                                    <Label CharacterSpacing="1"
+                                           TextColor="#80574D"
+                                           FontSize="Medium"
+                                           HorizontalOptions="EndAndExpand"
+                                           Text="{Binding totalAmount ,StringFormat='{0}$'}"/>
+                                </StackLayout>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <StackLayout Orientation="Horizontal"
+                         VerticalOptions="EndAndExpand">
+                <StackLayout HorizontalOptions="FillAndExpand"
+                             Margin="30,0,0,10">
+                    <Label Text="Total Price"
+                           TextColor="#B00905"
+                           FontSize="Medium" />
+                    <StackLayout Orientation="Horizontal">
+                        <Label x:Name="LblTotalPrice"
+                               TextColor="#80574D"
+                               FontSize="Medium" />
+                        <Label Text="$"
+                               TextColor="#80574D"
+                               FontSize="Medium" />
+                    </StackLayout>
+                </StackLayout>
+                <Button HorizontalOptions="FillAndExpand"
+                        BackgroundColor="#CE0B06"
+                        TextColor="White"
+                        Text="Proceed"
+                        x:Name="BtnProceed" 
+                        Clicked="BtnProceed_Clicked"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
