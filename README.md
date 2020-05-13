@@ -1,1 +1,1 @@
-# KFC Food Deliver App Clone
+# KFC Food Delivery App Clone
